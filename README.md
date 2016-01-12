@@ -37,4 +37,4 @@ Copyright (C) 2011 by akamaras/camarg<br /><br />
 Copyright (C) 2011 by dmmcinytre3 for the modifications he made<br />
 dmmcintyre3's modified version: https://freevps.us/thread-2252.html<br /><br />
 Copyright for this (bench-sh-2) (C) 2015 by me (Hidden Refuge)
-Copyright for this (bench-sh-2.1) (C) 2015 by (SavageWS6) (Forked Revision)
+Copyright for this (bench-sh-2.1) (C) 2016 by (SavageWS6) (Forked Revision)
