@@ -96,6 +96,9 @@ speedtest4 () {
 	slsg=$( wget -4 -O /dev/null http://speedtest.sng01.softlayer.com/downloads/test100.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
 	echo "Singapore 		Softlayer	$slsg " | tee -a $HOME/bench.log
 	echo "" | tee -a $HOME/bench.log
+	# Australia speed test
+	vultraus=$( wget -4 -O /dev/null http://syd-au-ping.vultr.com/vultr.com.100MB.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+	echo "Sydney, Australia	Vultr		$vultraus " | tee -a $HOME/bench.log
 	# Europe speed test
 	i3d=$( wget -4 -O /dev/null http://mirror.i3d.net/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
 	echo "Rotterdam, Netherlands	id3.net		$i3d" | tee -a $HOME/bench.log
