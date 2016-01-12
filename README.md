@@ -1,4 +1,4 @@
-# bench-sh-2
+# bench-sh-2.1
 Benchmark Script Version 2.1<br /><br />
 Demo Output: http://pastebin.com/pNXGSrr8<br /><br /><br />
 
