@@ -83,7 +83,6 @@ speedtest4 () {
 	echo "Washington, DC, US	Softlayer 	$slwdc " | tee -a $HOME/bench.log
 	lwwdc=$( wget -4 -O /dev/null http://mirror.wdc1.us.leaseweb.net/speedtest/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
 	echo "Washington, DC, US	Leaseweb 	$lwwdc " | tee -a $HOME/bench.log
-	echo "" | tee -a $HOME/bench.log
 	sfolw=$( wget -4 -O /dev/null http://mirror.sfo12.us.leaseweb.net/speedtest/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
 	echo "San Francisco,CA, US	Leaseweb 	$sfolw " | tee -a $HOME/bench.log
 	echo "" | tee -a $HOME/bench.log
