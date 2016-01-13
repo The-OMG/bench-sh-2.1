@@ -84,7 +84,7 @@ speedtest4 () {
 	lwwdc=$( wget -4 -O /dev/null http://mirror.wdc1.us.leaseweb.net/speedtest/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
 	echo "Washington, DC, US	Leaseweb 	$lwwdc " | tee -a $HOME/bench.log
 	sfolw=$( wget -4 -O /dev/null http://mirror.sfo12.us.leaseweb.net/speedtest/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "San Francisco,CA, US	Leaseweb 	$sfolw " | tee -a $HOME/bench.log
+	echo "San Francisco, CA, US	Leaseweb 	$sfolw " | tee -a $HOME/bench.log
 	echo "" | tee -a $HOME/bench.log
 	# Asia speed test
 	linodejp=$( wget -4 -O /dev/null http://speedtest.tokyo.linode.com/100MB-tokyo.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
@@ -106,6 +106,12 @@ speedtest4 () {
 	echo "Germany	                Leaseweb	$lwger" | tee -a $HOME/bench.log
 	lbhar=$( wget -4 -O /dev/null http://mirror.nl.leaseweb.net/speedtest/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
 	echo "Haarlem, Netherlands	Leaseweb	$lbhar " | tee -a $HOME/bench.log
+	ovhfr=$( wget -4 -O /dev/null http://proof.ovh.net/files/100Mb.dat 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+	echo "France			OVH		$ovhfr " | tee -a $HOME/bench.log
+	onlnetfr=$( wget -4 -O /dev/null http://ping.online.net/100Mo.dat 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+	echo "France			Online.net	$onlnetfr " | tee -a $HOME/bench.log
+	hetzger=$( wget -4 -O /dev/null http://speed.hetzner.de/100MB.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+	echo "Frankfurt, Germany	Hetzner		$hetzger " | tee -a $HOME/bench.log
 	echo "" | tee -a $HOME/bench.log
 	echo "" | tee -a $HOME/bench.log
 }
