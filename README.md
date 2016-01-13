@@ -4,6 +4,8 @@ Demo Output: http://pastebin.com/pNXGSrr8<br /><br /><br />
 
 Hello, I forked the script over from https://github.com/hidden-refuge who had a nice base bench.sh script. I simply added more mirrors to the list for testing (IPv4 Only) which are also 100MB bin test files.
 
+* Note, Online.net is a 100Mo.dat file, which is roughly ~95.4MB and not a true 100MB bin file. They do not have a 100MB bin/dat file on there website for testing purposes. 
+
 <strong>Parameters</strong><br /><br />
 Help Page:<br />
 <code>./bench.sh -h</code><br /><br />
