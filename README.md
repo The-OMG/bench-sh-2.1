@@ -1,6 +1,6 @@
 # bench-sh-2.1
 Benchmark Script Version 2.1<br /><br />
-Demo Output: http://pastebin.com/pNXGSrr8<br /><br /><br />
+Demo Output: http://pastebin.com/LSPw30nf<br /><br /><br />
 
 Hello, I forked the script over from https://github.com/hidden-refuge who had a nice base bench.sh script. I simply added more mirrors to the list for testing (IPv4 Only) which are also 100MB bin test files.
 
