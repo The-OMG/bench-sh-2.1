@@ -39,7 +39,9 @@ sysinfo () {
 	# Reading system uptime
 	up=$( uptime | awk '{ $1=$2=$(NF-6)=$(NF-5)=$(NF-4)=$(NF-3)=$(NF-2)=$(NF-1)=$NF=""; print }' | sed 's/^[ \t]*//;s/[ \t]*$//' )
 	# Reading operating system and version (simple, didn't filter the strings at the end...)
-	opsy=$( cat /etc/issue.net | awk 'NR==1 {print}' ) # Operating System & Version
+	distid=$( lsb_release -i ) #show distributor ID
+        releas=$( lsb_release -r ) #show release number
+        codename=$( lsb_release -c ) #show codename of distro
 	arch=$( uname -m ) # Architecture
 	lbit=$( getconf LONG_BIT ) # Architecture in Bit
 	hn=$( hostname ) # Hostname
@@ -59,10 +61,12 @@ sysinfo () {
 	echo "Swap		: $vram MB" | tee -a $HOME/bench.log
 	echo "Uptime		: $up" | tee -a $HOME/bench.log
 	echo "" | tee -a $HOME/bench.log
-	echo "OS		: $opsy" | tee -a $HOME/bench.log
-	echo "Arch		: $arch ($lbit Bit)" | tee -a $HOME/bench.log
-	echo "Kernel		: $kern" | tee -a $HOME/bench.log
-	echo "Hostname	: $hn" | tee -a $HOME/bench.log
+	echo "$distid" 		| tee -a $HOME/bench.log
+        echo "$releas"  	| tee -a $HOME/bench.log
+        echo "$codename" 	| tee -a $HOME/bench.log
+	echo "Arch:		$arch ($lbit Bit)" | tee -a $HOME/bench.log
+	echo "Kernel:		$kern" | tee -a $HOME/bench.log
+	echo "Hostname:		$hn" | tee -a $HOME/bench.log
 	echo "" | tee -a $HOME/bench.log
 	echo "" | tee -a $HOME/bench.log
 }
