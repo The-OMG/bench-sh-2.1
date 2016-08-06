@@ -66,7 +66,7 @@ sysinfo () {
         echo "$codename" 	| tee -a $HOME/bench.log
 	echo "Arch:		$arch ($lbit Bit)" | tee -a $HOME/bench.log
 	echo "Kernel:		$kern" | tee -a $HOME/bench.log
-	echo "Hostname:		$hn" | tee -a $HOME/bench.log
+	echo "Hostname:       $hn" | tee -a $HOME/bench.log
 	echo "" | tee -a $HOME/bench.log
 	echo "" | tee -a $HOME/bench.log
 }
