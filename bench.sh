@@ -1,9 +1,9 @@
 #!/bin/bash
 #####################################################################
 # Benchmark Script 2.1 by SavageWS6 from FreeVPS                    #
-#-# Copyright(C) 2015 - SavageWS6                                   #
-#-# License: GNU General Public License 3.0                         #
-#+# Copyright(C) 2015 - 2016 by SavageWS6                           #
+# Copyright(C) 2015 - SavageWS6                                     #
+# License: GNU General Public License 3.0                           #
+# Copyright(C) 2015 - 2016 by SavageWS6                             #
 # Github: https://github.com/savagews6/bench-sh-2.1                 #
 #####################################################################
 # Original script by akamaras/camarg                                #
