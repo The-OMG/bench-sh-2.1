@@ -70,7 +70,7 @@ sysinfo () {
 	echo "" | tee -a $HOME/bench.log
 	echo "" | tee -a $HOME/bench.log
 }
-speedtest4HEAD() {
+speedtest4HEAD () {
 	ipiv=$( wget -qO- ipv4.icanhazip.com ) # Getting IPv4
 	# Speed test via wget for IPv4 only with 10x 100 MB files. 1 GB bandwidth will be used!
 	echo "Speedtest (IPv4 only)" | tee -a $HOME/bench.log
@@ -83,7 +83,7 @@ speedtest4HEAD() {
 	echo "CDN			Cachefly	$cachefly" | tee -a $HOME/bench.log
 	echo "" | tee -a $HOME/bench.log
 }
-speedtest4US() {
+speedtest4US () {
 	# United States speed test
 	sldltx=$( wget -4 -O /dev/null http://speedtest.dal05.softlayer.com/downloads/test100.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
 	echo "Dallas, TX, US		Softlayer	$sldltx " | tee -a $HOME/bench.log
@@ -99,7 +99,7 @@ speedtest4US() {
 	echo "San Francisco, CA, US	Leaseweb 	$sfolw " | tee -a $HOME/bench.log
 	echo "" | tee -a $HOME/bench.log
 }
-speedtest4AS() {
+speedtest4AS () {
 	# Asia speed test
 	linodejp=$( wget -4 -O /dev/null http://speedtest.tokyo.linode.com/100MB-tokyo.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
 	echo "Tokyo, Japan		Linode		$linodejp " | tee -a $HOME/bench.log
@@ -114,7 +114,7 @@ speedtest4AS() {
 	vultraus=$( wget -4 -O /dev/null http://syd-au-ping.vultr.com/vultr.com.100MB.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
 	echo "Sydney, Australia	Vultr		$vultraus " | tee -a $HOME/bench.log
 }
-speedtest4EU() {
+speedtest4EU () {
 	# Europe speed test
 	#	i3d=$( wget -4 -O /dev/null http://mirror.i3d.net/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
 	#	echo "Rotterdam, Netherlands	id3.net		$i3d" | tee -a $HOME/bench.log
