@@ -118,11 +118,11 @@ speedtest4AS () {
 	slsg=$( wget -4 -O /dev/null http://speedtest.sng01.softlayer.com/downloads/test100.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
 	echo "Singapore 		Softlayer	$slsg " | tee -a $HOME/bench.log
 	datapacketSG100=$( wget -4 -O /dev/null http://sin.download.datapacket.com/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Singapore			Datapacket.com 100MB		$datapacketSG100 " | tee -a $HOME/bench.log
-	ndatapacketSG1000=$( wget -4 -O /dev/null http://sin.download.datapacket.com/1000mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Singapore			Datapacket.com 1000MB		$datapacketSG1000 " | tee -a $HOME/bench.log
+	echo "Singapore		Datapacket.com 100MB		$datapacketSG100 " | tee -a $HOME/bench.log
+	datapacketSG1000=$( wget -4 -O /dev/null http://sin.download.datapacket.com/1000mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+	echo "Singapore		Datapacket.com 1000MB		$datapacketSG1000 " | tee -a $HOME/bench.log
 	datapacketSG10000=$( wget -4 -O /dev/null http://sin.download.datapacket.com/10000mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Singapore			Datapacket.com 10000MB		$datapacketSG10000 " | tee -a $HOME/bench.log
+	echo "Singapore		Datapacket.com 10000MB		$datapacketSG10000 " | tee -a $HOME/bench.log
 	echo "" | tee -a $HOME/bench.log
 	# Australia speed test
 	vultraus=$( wget -4 -O /dev/null http://syd-au-ping.vultr.com/vultr.com.100MB.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
@@ -139,17 +139,17 @@ speedtest4EU () {
 	ovhfr=$( wget -4 -O /dev/null http://proof.ovh.net/files/100Mio.dat 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
 	echo "France			OVH		$ovhfr " | tee -a $HOME/bench.log
 	nforceNL100=$( wget -4 -O /dev/null https://mirror.nforce.com/pub/speedtests/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Netherlands			Nforce 100MB		$nforceNL100 " | tee -a $HOME/bench.log
+	echo "Netherlands		Nforce 100MB		$nforceNL100 " | tee -a $HOME/bench.log
 	nforceNL1000=$( wget -4 -O /dev/null https://mirror.nforce.com/pub/speedtests/1000mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Netherlands			Nforce 1000MB		$nforceNL1000 " | tee -a $HOME/bench.log
+	echo "Netherlands		Nforce 1000MB		$nforceNL1000 " | tee -a $HOME/bench.log
 	nforceNL10000=$( wget -4 -O /dev/null https://mirror.nforce.com/pub/speedtests/10000mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Netherlands			Nforce 10000MB		$nforceNL10000 " | tee -a $HOME/bench.log
+	echo "Netherlands		Nforce 10000MB		$nforceNL10000 " | tee -a $HOME/bench.log
 	datapacketNL100=$( wget -4 -O /dev/null http://ams.download.datapacket.com/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Netherlands			Datapacket.com 100MB		$datapacketNL100 " | tee -a $HOME/bench.log
-	ndatapacketNL1000=$( wget -4 -O /dev/null http://ams.download.datapacket.com/1000mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Netherlands			Datapacket.com 1000MB		$datapacketNL1000 " | tee -a $HOME/bench.log
+	echo "Netherlands		Datapacket.com 100MB		$datapacketNL100 " | tee -a $HOME/bench.log
+	datapacketNL1000=$( wget -4 -O /dev/null http://ams.download.datapacket.com/1000mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+	echo "Netherlands		Datapacket.com 1000MB		$datapacketNL1000 " | tee -a $HOME/bench.log
 	datapacketNL10000=$( wget -4 -O /dev/null http://ams.download.datapacket.com/10000mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Netherlands			Datapacket.com 10000MB		$datapacketNL10000 " | tee -a $HOME/bench.log
+	echo "Netherlands		Datapacket.com 10000MB		$datapacketNL10000 " | tee -a $HOME/bench.log
 	onlnetfr=$( wget -4 -O /dev/null http://ping.online.net/100Mo.dat 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
 	echo "France			Online.net	$onlnetfr " | tee -a $HOME/bench.log
 	hetzger=$( wget -4 -O /dev/null http://speed.hetzner.de/100MB.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
