@@ -84,20 +84,28 @@ speedtest4HEAD () {
 	echo "" | tee -a $HOME/bench.log
 }
 speedtest4US () {
-	# United States speed test
+	# North Ameriaca speed test
 	sldltx=$( wget -4 -O /dev/null http://speedtest.dal05.softlayer.com/downloads/test100.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Dallas, TX, US		Softlayer	$sldltx " | tee -a $HOME/bench.log
-	slwa=$( wget -4 -O /dev/null http://speedtest.sea01.softlayer.com/downloads/test100.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Seattle, WA, US		Softlayer	$slwa " | tee -a $HOME/bench.log
+	echo "Dallas, TX, US		Softlayer		$sldltx " | tee -a $HOME/bench.log
+		slwa=$( wget -4 -O /dev/null http://speedtest.sea01.softlayer.com/downloads/test100.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+	echo "Seattle, WA, US		Softlayer		$slwa " | tee -a $HOME/bench.log
 	slsjc=$( wget -4 -O /dev/null http://speedtest.sjc01.softlayer.com/downloads/test100.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "San Jose, CA, US	Softlayer	$slsjc " | tee -a $HOME/bench.log
+	echo "San Jose, CA, US	Softlayer		$slsjc " | tee -a $HOME/bench.log
 	slwdc=$( wget -4 -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test100.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Washington, DC, US	Softlayer	$slwdc " | tee -a $HOME/bench.log
+	echo "Washington, DC, US	Softlayer		$slwdc " | tee -a $HOME/bench.log
 	lwwdc=$( wget -4 -O /dev/null http://mirror.wdc1.us.leaseweb.net/speedtest/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Washington, DC, US	Leaseweb 	$lwwdc " | tee -a $HOME/bench.log
+	echo "Washington, DC, US	Leaseweb 		$lwwdc " | tee -a $HOME/bench.log
 	sfolw=$( wget -4 -O /dev/null http://mirror.sfo12.us.leaseweb.net/speedtest/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "San Francisco, CA, US	Leaseweb 	$sfolw " | tee -a $HOME/bench.log
+	echo "San Francisco, CA, US	Leaseweb 		$sfolw " | tee -a $HOME/bench.log
 	echo "" | tee -a $HOME/bench.log
+}
+speedtest4AK () {
+	gciak100=$( wget -4 -O /dev/null http://speedtest.gci.com/data/100MB.dat 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+	echo "Anchorage, AK, US	GCI Communications 100MB	$gciak100 " | tee -a $HOME/bench.log
+	gciak1000=$( wget -4 -O /dev/null http://speedtest.gci.com/data/1000MB.dat 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+	echo "Anchorage, AK, US	GCI Communications 1000MB	$gciak1000 " | tee -a $HOME/bench.log
+	gciak10000=$( wget -4 -O /dev/null http://speedtest.gci.com/data/10000MB.dat 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+	echo "Anchorage, AK, US	GCI Communications 10000MB	$gciak10000 " | tee -a $HOME/bench.log
 }
 speedtest4AS () {
 	# Asia speed test
@@ -109,6 +117,12 @@ speedtest4AS () {
 	echo "Singapore         	Leaseweb        $leasewebsg " | tee -a $HOME/bench.log
 	slsg=$( wget -4 -O /dev/null http://speedtest.sng01.softlayer.com/downloads/test100.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
 	echo "Singapore 		Softlayer	$slsg " | tee -a $HOME/bench.log
+	datapacketSG100=$( wget -4 -O /dev/null http://sin.download.datapacket.com/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+	echo "Singapore			Datapacket.com 100MB		$datapacketSG100 " | tee -a $HOME/bench.log
+	ndatapacketSG1000=$( wget -4 -O /dev/null http://sin.download.datapacket.com/1000mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+	echo "Singapore			Datapacket.com 1000MB		$datapacketSG1000 " | tee -a $HOME/bench.log
+	datapacketSG10000=$( wget -4 -O /dev/null http://sin.download.datapacket.com/10000mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+	echo "Singapore			Datapacket.com 10000MB		$datapacketSG10000 " | tee -a $HOME/bench.log
 	echo "" | tee -a $HOME/bench.log
 	# Australia speed test
 	vultraus=$( wget -4 -O /dev/null http://syd-au-ping.vultr.com/vultr.com.100MB.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
@@ -124,6 +138,18 @@ speedtest4EU () {
 	#	echo "Haarlem, Netherlands	Leaseweb	$lbhar " | tee -a $HOME/bench.log
 	ovhfr=$( wget -4 -O /dev/null http://proof.ovh.net/files/100Mio.dat 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
 	echo "France			OVH		$ovhfr " | tee -a $HOME/bench.log
+	nforceNL100=$( wget -4 -O /dev/null https://mirror.nforce.com/pub/speedtests/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+	echo "Netherlands			Nforce 100MB		$nforceNL100 " | tee -a $HOME/bench.log
+	nforceNL1000=$( wget -4 -O /dev/null https://mirror.nforce.com/pub/speedtests/1000mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+	echo "Netherlands			Nforce 1000MB		$nforceNL1000 " | tee -a $HOME/bench.log
+	nforceNL10000=$( wget -4 -O /dev/null https://mirror.nforce.com/pub/speedtests/10000mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+	echo "Netherlands			Nforce 10000MB		$nforceNL10000 " | tee -a $HOME/bench.log
+	datapacketNL100=$( wget -4 -O /dev/null http://ams.download.datapacket.com/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+	echo "Netherlands			Datapacket.com 100MB		$datapacketNL100 " | tee -a $HOME/bench.log
+	ndatapacketNL1000=$( wget -4 -O /dev/null http://ams.download.datapacket.com/1000mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+	echo "Netherlands			Datapacket.com 1000MB		$datapacketNL1000 " | tee -a $HOME/bench.log
+	datapacketNL10000=$( wget -4 -O /dev/null http://ams.download.datapacket.com/10000mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+	echo "Netherlands			Datapacket.com 10000MB		$datapacketNL10000 " | tee -a $HOME/bench.log
 	onlnetfr=$( wget -4 -O /dev/null http://ping.online.net/100Mo.dat 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
 	echo "France			Online.net	$onlnetfr " | tee -a $HOME/bench.log
 	hetzger=$( wget -4 -O /dev/null http://speed.hetzner.de/100MB.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
@@ -245,6 +271,7 @@ hlp () {
 	echo "-6		: Normal benchmark but with a IPv6 only speedtest (run when you have IPv6)."
 	echo "-46		: Normal benchmark with IPv4 and IPv6 speedtest."
 	echo "-64		: Same as above."
+	echo "-AK		: Normal benchmark but with Alaskan (USA) host added to test."
 	echo "-b		: Normal benchmark with IPv4 only speedtest, I/O test and Geekbench system benchmark."
 	echo "-b6		: Normal benchmark with IPv6 only speedtest, I/O test and Geekbench system benchmark."
 	echo "-b46		: Normal benchmark with IPv4 and IPv6 speedtest, I/O test and Geekbench system benchmark."
@@ -267,6 +294,8 @@ case $1 in
 		sysinfo; speedtest4HEAD; speedtest4EU; iotest;;
 	'-64' )
 		sysinfo; speedtest4; speedtest6; iotest;;
+	'-AK' )
+		sysinfo; speedtest4; speedtest4AK; iotest;;
 	'-b' )
 		sysinfo; speedtest4; iotest; gbench;;
 	'-b6' )
